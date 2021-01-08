@@ -70,7 +70,7 @@
     },
 	{
       "name": "contract",
-      "pip": "git+https://github.com/openimis/openimis-be-contribution_plan_py.git@develop#egg=openimis-be-contract"
-    },	
+      "pip": "git+https://github.com/openimis/openimis-be-contract_py.git@develop#egg=openimis-be-contract"
+    }
   ]
 }
