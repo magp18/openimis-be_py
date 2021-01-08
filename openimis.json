@@ -2,7 +2,7 @@
   "modules": [
     {
       "name": "core",
-      "pip": "openimis-be-core==1.2.0rc2"
+      "pip": "git+https://github.com/openimis/openimis-be-core_py.git@develop#egg=openimis-be-core"
     },
     {
       "name": "report",
@@ -10,43 +10,67 @@
     },
     {
       "name": "location",
-      "pip": "openimis-be-location==1.2.0rc1"
+      "pip": "openimis-be-location==1.2.0rc2"
     },
     {
       "name": "medical",
-      "pip": "openimis-be-medical==1.2.0rc1"
+      "pip": "openimis-be-medical==1.2.0rc2"
     },
     {
       "name": "medical_pricelist",
-      "pip": "openimis-be-medical_pricelist==1.2.0rc1"
+      "pip": "openimis-be-medical_pricelist==1.2.0rc2"
     },
     {
       "name": "product",
-      "pip": "openimis-be-product==1.2.0rc1"
+      "pip": "openimis-be-product==1.2.0rc3"
     },
     {
       "name": "insuree",
-      "pip": "openimis-be-insuree==1.2.0rc1"
+      "pip": "openimis-be-insuree==1.2.0rc3"
     },
     {
       "name": "policy",
-      "pip": "openimis-be-policy==1.2.0rc1"
+      "pip": "openimis-be-policy==1.2.0rc4"
     },
     {
       "name": "contribution",
-      "pip": "openimis-be-contribution==1.2.0rc1"
+      "pip": "openimis-be-contribution==1.2.0rc3"
+    },
+    {
+      "name": "payer",
+      "pip": "openimis-be-payer==1.2.0rc2"
+    },
+    {
+      "name": "payment",
+      "pip": "openimis-be-payment==1.2.0rc3"
     },
     {
       "name": "claim",
-      "pip": "openimis-be-claim==1.2.0rc3"
+      "pip": "openimis-be-claim==1.2.0rc5"
     },
     {
       "name": "claim_batch",
-      "pip": "openimis-be-claim_batch==1.2.0rc1"
+      "pip": "openimis-be-claim_batch==1.2.0rc2"
     },
     {
       "name": "api_fhir",
       "pip": "openimis-be-api_fhir==1.2.0rc1"
-    }
+    },
+        {
+      "name": "calculation",
+      "pip": "git+https://github.com/openimis/openimis-be-calculation_py.git@develop#egg=openimis-be-calculation"
+    },
+    {
+      "name": "policyholder",
+      "pip": "git+https://github.com/openimis/openimis-be-policyholder_py.git@develop#egg=openimis-be-policyholder"
+    },
+    {
+      "name": "contribution_plan",
+      "pip": "git+https://github.com/openimis/openimis-be-contribution_plan_py.git@develop#egg=openimis-be-contract"
+    },
+	{
+      "name": "contract",
+      "pip": "git+https://github.com/openimis/openimis-be-contribution_plan_py.git@develop#egg=openimis-be-contract"
+    },	
   ]
 }
