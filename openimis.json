@@ -2,7 +2,7 @@
   "modules": [
     {
       "name": "core",
-      "pip": "-e git+https://github.com/openimis/openimis-be-core_py.git@develop"
+      "pip": "git+https://github.com/openimis/openimis-be-core_py.git@develop"
     },
     {
       "name": "report",
@@ -58,15 +58,15 @@
     },
         {
       "name": "calculation",
-      "pip": "-e git+https://github.com/openimis/openimis-be-calculation_py.git@develop"
+      "pip": "git+https://github.com/openimis/openimis-be-calculation_py.git@develop"
     },
     {
       "name": "contribution_plan",
-      "pip": "-e git+https://github.com/openimis/openimis-be-contribution_plan_py.git@develop"
+      "pip": "git+https://github.com/openimis/openimis-be-contribution_plan_py.git@develop"
     },
 	{
       "name": "policyholder",
-      "pip": "-e git+https://github.com/openimis/openimis-be-policyholder_py.git@develop"
+      "pip": "git+https://github.com/openimis/openimis-be-policyholder_py.git@develop"
     }
   ]
 }
