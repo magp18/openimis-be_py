@@ -19,6 +19,7 @@ for app in all_apps:
         # Python to load it would work but not from __init__.py because Django models are not loaded yet at that point.
         # Importing claim.schema still returns the claim module but it forces the loading of schema.
         # This code is executed on first access to the Graphene API
+        module_path = __import__(f"{app}").__file__
         schema = __import__(f"{app}.schema")
         if hasattr(schema.schema, "Query"):
             queries.append(schema.schema.Query)
@@ -26,9 +27,11 @@ for app in all_apps:
         if hasattr(schema.schema, "bind_signals"):
             bind_signals.append(schema.schema.bind_signals)
             logger.debug(f"{app} signals bound")
+    except ImportError:
+        logger.debug(f"{app}.schema import error")
     except ModuleNotFoundError as exc:
         # The module doesn't have a schema.py, just skip
-        logger.debug(f"{app} has no schema module, skipping")
+        logger.debug(f"{app} has no schema for this module located f"{module_path}, skipping")
     except AttributeError as exc:
         logger.debug(f"{app} queries couldn't be loaded")
         raise  # This can be hiding actual compilation errors
