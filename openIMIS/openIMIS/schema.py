@@ -28,7 +28,7 @@ for app in all_apps:
             bind_signals.append(schema.schema.bind_signals)
             logger.debug(f"{app} signals bound")
     except ImportError:
-        logger.debug(f"{app}.schema import error")
+        logger.debug(f"{app}.schema import error for this module located %s, skipping", module_path)
     except ModuleNotFoundError as exc:
         # The module doesn't have a schema.py, just skip
         logger.debug(f"{app} has no schema for this module located %s, skipping", module_path)
