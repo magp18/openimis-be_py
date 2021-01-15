@@ -31,7 +31,7 @@ for app in all_apps:
         logger.debug(f"{app}.schema import error")
     except ModuleNotFoundError as exc:
         # The module doesn't have a schema.py, just skip
-        logger.debug(f"{app} has no schema for this module located f"{module_path}, skipping")
+        logger.debug(f"{app} has no schema for this module located %s, skipping", module_path)
     except AttributeError as exc:
         logger.debug(f"{app} queries couldn't be loaded")
         raise  # This can be hiding actual compilation errors
