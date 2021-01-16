@@ -6,7 +6,7 @@ RUN curl https://packages.microsoft.com/config/debian/10/prod.list > /etc/apt/so
 RUN apt-get update
 RUN ACCEPT_EULA=Y apt-get install -y msodbcsql17 mssql-tools
 RUN apt-get install -y python3-dev unixodbc-dev git
-RUN pip install --upgrade pip
+
 RUN mkdir /openimis-be
 COPY . /openimis-be
 WORKDIR /openimis-be
