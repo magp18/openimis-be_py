@@ -13,6 +13,7 @@ WORKDIR /openimis-be
 RUN pip install -r requirements.txt
 RUN python modules-requirements.py openimis.json > modules-requirements.txt
 RUN pip install -r modules-requirements.txt 
+ENV PYTHONPATH /openimis-be/src:$PYTHONPATH
 WORKDIR /openimis-be/openIMIS
 RUN NO_DATABASE=True python manage.py compilemessages
 RUN NO_DATABASE=True python manage.py collectstatic --clear --noinput
