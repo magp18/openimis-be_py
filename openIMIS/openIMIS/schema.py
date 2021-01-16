@@ -1,7 +1,7 @@
 import graphene
 from core.models import Language
 from django.utils import translation
-
+from importlib import import_module
 from .openimisapps import openimis_apps
 from graphene_django.debug import DjangoDebug
 
@@ -20,15 +20,13 @@ for app in all_apps:
         # Importing claim.schema still returns the claim module but it forces the loading of schema.
         # This code is executed on first access to the Graphene API
         module_path = __import__(f"{app}").__file__
-        schema = __import__(f"{app}.schema")
-        if hasattr(schema.schema, "Query"):
-            queries.append(schema.schema.Query)
+        schema = import_module(f"{app}.schema")
+        if hasattr(schema, "Query"):
+            queries.append(schema.Query)
             logger.debug(f"{app} queries loaded")
-        if hasattr(schema.schema, "bind_signals"):
-            bind_signals.append(schema.schema.bind_signals)
+        if hasattr(schema, "bind_signals"):
+            bind_signals.append(schema.bind_signals)
             logger.debug(f"{app} signals bound")
-    except ImportError:
-        logger.debug(f"{app}.schema import error for this module located %s, skipping", module_path)
     except ModuleNotFoundError as exc:
         # The module doesn't have a schema.py, just skip
         logger.debug(f"{app} has no schema for this module located %s, skipping", module_path)
@@ -39,9 +37,9 @@ for app in all_apps:
         logger.debug(f"{app} exception", exc)
 
     try:
-        schema_module = __import__(f"{app}.schema")
-        if hasattr(schema_module.schema, "Mutation"):
-            mutation = schema_module.schema.Mutation
+        schema_module = import_module(f"{app}.schema")
+        if hasattr(schema_module, "Mutation"):
+            mutation = schema_module.Mutation
             if mutation:
                 mutations.append(mutation)
                 logger.debug(f"{app} mutations loaded")
