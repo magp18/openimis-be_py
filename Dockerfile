@@ -6,7 +6,7 @@ RUN curl https://packages.microsoft.com/config/debian/10/prod.list > /etc/apt/so
 RUN apt-get update
 RUN ACCEPT_EULA=Y apt-get install -y msodbcsql17 mssql-tools
 RUN apt-get install -y python3-dev unixodbc-dev git
-
+ENV DJANGO_SETTINGS_MODULE=openimis.settings
 RUN mkdir /openimis-be
 COPY . /openimis-be
 WORKDIR /openimis-be
