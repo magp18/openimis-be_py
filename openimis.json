@@ -67,6 +67,10 @@
 	{
       "name": "policyholder",
       "pip": "-e git+https://github.com/openimis/openimis-be-policyholder_py.git@develop#egg=openimis-be-policyholder"
+    },
+    {
+      "name": "contract",
+      "pip": "-e git+https://github.com/openimis/openimis-be-contract_py.git@develop#egg=openimis-be-contract"
     }
   ]
 }
